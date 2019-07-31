@@ -215,9 +215,9 @@ void demo(char *cfgfile, char *weightfile, float thresh, float hier_thresh, int 
             //if (nms) do_nms_obj(local_dets, local_nboxes, l.classes, nms);    // bad results
             if (nms) do_nms_sort(local_dets, local_nboxes, l.classes, nms);
 
-            //printf("\033[2J");
-            //printf("\033[1;1H");
-            //printf("\nFPS:%.1f\n", fps);
+            printf("\033[2J");
+            printf("\033[1;1H");
+            printf("\nFPS:%.1f\n", fps);
             printf("Objects:\n\n");
 
             ++frame_id;
@@ -228,8 +228,6 @@ void demo(char *cfgfile, char *weightfile, float thresh, float hier_thresh, int 
 
             draw_detections_cv_v3(show_img, local_dets, local_nboxes, demo_thresh, demo_names, demo_alphabet, demo_classes, demo_ext_output);
             free_detections(local_dets, local_nboxes);
-
-            printf("\nFPS:%.1f\n", fps);
 
             if(!prefix){
                 if (!dont_show) {
